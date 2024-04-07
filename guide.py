@@ -1,12 +1,11 @@
-from flask import Flask
+from flask import Flask, url_for, render_template
 
 app = Flask(__name__)
 
 
 @app.route('/')
 def main_window():
-    with open('mainWindow.html', 'r', encoding='utf-8') as html:
-        return html.read()
+    return render_template('mainWindow.html')
 
 
 if __name__ == '__main__':
