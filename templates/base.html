@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <title>
+      {% block title %}
+     {% endblock %}
+    </title>
+    <link href="{{ url_for('static',filename='css/style.css') }}" rel="stylesheet" type="text/css">
+</head>
+<body>
+<header>
+      <nav class="navbar navbar-light" style="background-color: lightskyblue">
+        <div class="container">
+          <a class="navbar-brand" href="">
+            <img src="{{ url_for('static', filename='img/logo.png') }}" width="30" height="30" class="d-inline-block align-top" alt="">
+            Гид по России | Путешествия
+          </a>
+          <ul class="nav  nav-pills">
+            <li class="nav-item">
+              <a class="nav-link active" href="">
+                Войти
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('prob_list') }}">
+                Поиск
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="">
+                О проекте
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    {% block content %}{% endblock %}
+    <footer>
+        <h4> Copyring: &copy; Ялта - 2024</h4>
+    </footer>
+</body>
+</html>
