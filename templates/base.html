@@ -20,7 +20,7 @@
           </a>
           <ul class="nav  nav-pills">
             <li class="nav-item">
-              <a class="nav-link active" href="">
+              <a class="nav-link active" href="#container">
                 Войти
               </a>
             </li>
@@ -39,6 +39,18 @@
       </nav>
     </header>
     {% block content %}{% endblock %}
+<div id="container">
+    <div class="reveal-modal" id="exampleModal">
+        <div class="window">
+            <div>
+                Заголовок
+            </div>
+            <div>
+                <a href="#">Close Modal</a>
+            </div>
+        </div>
+    </div>
+</div>
     <footer>
         <h4> Copyring: &copy; Ялта - 2024</h4>
     </footer>
