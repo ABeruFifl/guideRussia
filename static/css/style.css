@@ -26,7 +26,7 @@ body{
     margin: 5px;
     vertical-align: top;
 }
-#container {
+#login {
     width: 100%;
     height: 100%;
     top: 0;
@@ -35,7 +35,7 @@ body{
     display: none;
     background-color: rgba(22,22,22,0.5);
 }
-#container:target {
+#login:target {
     visibility: visible;
     display: block;
 }
@@ -46,7 +46,7 @@ body{
 }
 .window {
         width: 500px;
-        height: 600px;
+        height: 420px;
         text-align: center;
         padding: 15px;
         border: 1px solid #5F9EA0;
@@ -60,3 +60,19 @@ body{
         left: 0;
         margin: auto;
 }
+.close_btn {
+    margin-left: 440px;
+    color: #FF0000;
+}
+#register {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    position: absolute;
+    visibility: hidden;
+    display: none;
+    background-color: rgba(22,22,22,0.5);
+}
+#register:target {
+    visibility: visible;
+    display: block;
