@@ -1,0 +1,42 @@
+{% extends 'main_window.html' %}
+{% block title %}
+Авторизация
+{% endblock %}
+{% block login_N_register %}
+<div class="login">
+    <div class="reveal-modal">
+        <div class="window">
+            <div>
+                <a class="nav-link active close_btn" href="/">
+                    X
+                </a>
+                <h2>Авторизация</h2>
+            </div>
+            <form action="" method="post" novalidate>
+                <div>
+                    {{ form.csrf_token }}
+                </div>
+                {% for field in form if field.name != 'csrf_token' %}
+                    <div>
+                        <p>
+                            {% if loop.last %}
+                                {{ field() }}
+                            {% else %}
+                                {{ field.label() }}
+                                {{ field() }}
+                            {% endif %}
+                            {% for error in field.errors %}
+                                <div class="error">{{ error }}</div>
+                            {% endfor %}
+                        </p>
+                    </div>
+                {% endfor %}
+                {{ message }}
+            </form>
+            <div>
+                Если нет аккаунта - <a href="/register">зарегистрируйтесь</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
