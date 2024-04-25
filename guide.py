@@ -5,6 +5,7 @@ from data.forms import LoginForm, RegisterForm
 from data import db_session
 from data.users import User
 from data.route import Route
+from data.event import Event
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'guideRussia_secret_key'
@@ -20,18 +21,27 @@ def load_user(user_id):
     return db_sess.query(User).get(user_id)
 
 
-list1 = ['Московский Планетарий', 'Ул. Садовая-Кудринская, д.5', 'img/planetarium.jpeg']
-list2 = ['Макет космического корабля «Буран»', 'ВДНХ, Пр-т Мира, 119', 'img/buran.jpg']
-list3 = ['Центр «Космонавтика и авиация»', 'ВДНХ, Пр-т Мира, 119', 'img/centerCNA.jpg']
-
-
 @app.route('/')
 def main_window():
-    context = {'events': [list1, list2, list3],
+    context = {'events': [],
                'routes': []}
     db_sess = db_session.create_session()
     for route1 in db_sess.query(Route).filter(Route.region == 'Москва').all():
         context['routes'].append(route1.get_list())
+    for event1 in db_sess.query(Event).filter(Event.region == 'Москва').all():
+        context['events'].append(event1.get_list())
+    return render_template('main_window.html', context=context)
+
+
+@app.route('/st_peterburg')
+def stpeterburg():
+    context = {'events': [],
+               'routes': []}
+    db_sess = db_session.create_session()
+    for route1 in db_sess.query(Route).filter(Route.region == 'Санкт-Петербург').all():
+        context['routes'].append(route1.get_list())
+    for event1 in db_sess.query(Event).filter(Event.region == 'Санкт-Петербург').all():
+        context['events'].append(event1.get_list())
     return render_template('main_window.html', context=context)
 
 
@@ -90,6 +100,13 @@ def route(route_id):
     db_sess = db_session.create_session()
     route_list = db_sess.query(Route).filter(Route.id == route_id).first().get_list()
     return render_template('route.html', route_list=route_list)
+
+
+@app.route('/event/<int:event_id>')
+def event(event_id):
+    db_sess = db_session.create_session()
+    event_list = db_sess.query(Event).filter(Event.id == event_id).first().get_list()
+    return render_template('event.html', event_list=event_list)
 
 
 if __name__ == '__main__':

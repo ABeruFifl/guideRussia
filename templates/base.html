@@ -26,23 +26,17 @@
                     <a class="nav-link active" href="/login">Войти</a>
                 {% endif %}
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="">
-                Поиск
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="">
-                О проекте
-              </a>
-            </li>
           </ul>
         </div>
       </nav>
     </header>
     {% block content %}{% endblock %}
     <footer>
-        <h4 style="text-align: center;"> Copyring: &copy; Ялта - 2024</h4>
+        <h4 style="text-align: center;">
+            <a class="nav-link" href="">О проекте</a>
+            <a class="nav-link" href="https://t.me/travelguiderussia">Наш Телеграмм</a>
+            <a class="nav-link" href="https://m.vk.com/travelguiderussia">Наш ВК</a>
+            <a class="nav-link" href="https://dzen.ru/travelguiderussia">Наш Дзен</a></h4>
     </footer>
 </body>
 </html>

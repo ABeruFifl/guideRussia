@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}
+{{ event_list[2] }}
+{% endblock %}
+{% block content %}
+<div class="route">
+    <p><h1>{{ event_list[2] }}</h1></p>
+    <img style="width: 500px;" src="{{ url_for('static', filename=event_list[4]) }}">
+    <p><div>Протяженность - {{ event_list[3] }}</div></p>
+    <div style="margin-left: 33%; margin-right: 33%;">{{ event_list[5] }}</div>
+</div>
+{% endblock %}
